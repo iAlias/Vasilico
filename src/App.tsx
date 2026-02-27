@@ -103,7 +103,13 @@ export default function App() {
     <div className="min-h-screen bg-[#F0F5F1] text-[#1E3F20] font-sans flex flex-col md:flex-row">
       {/* Mobile Header */}
       <div className="md:hidden bg-white border-b border-zinc-100 p-4 flex items-center justify-between sticky top-0 z-30">
-        <div className="flex items-center gap-3">
+        <div 
+          className="flex items-center gap-3 cursor-pointer"
+          onClick={() => {
+            setActiveView("dashboard");
+            setIsMobileMenuOpen(false);
+          }}
+        >
           <div className="w-10 h-10 bg-[#1E3F20] rounded-xl flex items-center justify-center text-white shadow-md">
             <Utensils size={20} />
           </div>
@@ -130,7 +136,10 @@ export default function App() {
         "fixed md:static inset-y-0 left-0 w-72 bg-white border-r border-zinc-100 flex flex-col z-50 transform transition-transform duration-300 ease-in-out md:translate-x-0",
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="p-8 hidden md:flex items-center gap-3">
+        <div 
+          className="p-8 hidden md:flex items-center gap-3 cursor-pointer"
+          onClick={() => setActiveView("dashboard")}
+        >
           <div className="w-12 h-12 bg-[#1E3F20] rounded-2xl flex items-center justify-center text-white shadow-xl shadow-zinc-200">
             <Utensils size={24} />
           </div>

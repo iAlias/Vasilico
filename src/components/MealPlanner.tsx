@@ -187,7 +187,12 @@ export default function MealPlanner() {
                     };
                     return (order[a.category] || 99) - (order[b.category] || 99);
                   }).map((meal) => (
-                    <div key={meal.id} className="bg-zinc-50 p-6 rounded-3xl border border-zinc-100 group relative">
+                    <div key={meal.id} className="bg-zinc-50 p-6 rounded-3xl border border-zinc-100 group relative cursor-pointer hover:border-[#4A7C59]/30 transition-colors"
+                      onClick={() => {
+                        const recipe = recipes.find(r => r.title === meal.title);
+                        if (recipe) setViewingRecipe(recipe);
+                      }}
+                    >
                       <button 
                         type="button"
                         onClick={(e) => {
@@ -199,7 +204,7 @@ export default function MealPlanner() {
                         <Trash2 size={16} className="pointer-events-none" />
                       </button>
                       <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2 block">{meal.category}</span>
-                      <h4 className="text-sm font-bold text-[#1E3F20] mb-4 pr-6">{meal.title}</h4>
+                      <h4 className="text-sm font-bold text-[#1E3F20] mb-4 pr-6 group-hover:text-[#4A7C59] transition-colors">{meal.title}</h4>
                       <div className="grid grid-cols-2 gap-2">
                         <div className="bg-white/50 p-2 rounded-xl text-center">
                           <p className="text-[8px] text-zinc-400 font-bold uppercase">Calorie</p>
@@ -320,6 +325,13 @@ export default function MealPlanner() {
           </div>
         )}
       </AnimatePresence>
+
+      {viewingRecipe && (
+        <RecipeViewModal 
+          recipe={viewingRecipe} 
+          onClose={() => setViewingRecipe(null)} 
+        />
+      )}
     </div>
   );
 }

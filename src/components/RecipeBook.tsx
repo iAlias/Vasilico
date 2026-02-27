@@ -22,6 +22,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "../lib/utils";
 import type { Recipe, Ingredient } from "../types";
 import { storage } from "../services/storageService";
+import RecipeViewModal from "./RecipeViewModal";
 
 export default function RecipeBook() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -44,6 +45,7 @@ export default function RecipeBook() {
 
   // Planning State
   const [showPlanModal, setShowPlanModal] = useState<Recipe | null>(null);
+  const [viewingRecipe, setViewingRecipe] = useState<Recipe | null>(null);
   const [planCategory, setPlanCategory] = useState("Pranzo");
   const [planServings, setPlanServings] = useState("1");
 
@@ -274,7 +276,10 @@ export default function RecipeBook() {
                     <CalendarIcon size={14} className="text-[#4A7C59]" />
                     Pianifica
                   </button>
-                  <button className="p-3 bg-zinc-50 text-zinc-400 rounded-2xl hover:bg-zinc-100 hover:text-[#1E3F20] transition-all">
+                  <button 
+                    onClick={() => setViewingRecipe(recipe)}
+                    className="p-3 bg-zinc-50 text-zinc-400 rounded-2xl hover:bg-zinc-100 hover:text-[#1E3F20] transition-all"
+                  >
                     <ChevronRight size={18} />
                   </button>
                 </div>
@@ -283,6 +288,13 @@ export default function RecipeBook() {
           ))
         )}
       </div>
+
+      {viewingRecipe && (
+        <RecipeViewModal 
+          recipe={viewingRecipe} 
+          onClose={() => setViewingRecipe(null)} 
+        />
+      )}
 
       {/* Plan Modal */}
       <AnimatePresence>

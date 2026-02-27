@@ -310,9 +310,16 @@ export default function Dashboard({ setActiveView }: DashboardProps) {
                 <div className="space-y-2">
                   {sortedMeals.length > 0 ? (
                     sortedMeals.slice(0, 4).map((meal, idx) => (
-                      <div key={idx} className="bg-zinc-50 p-2 rounded-xl border border-zinc-100/50">
+                      <div 
+                        key={idx} 
+                        className="bg-zinc-50 p-2 rounded-xl border border-zinc-100/50 cursor-pointer hover:border-[#4A7C59]/30 transition-colors"
+                        onClick={() => {
+                          const recipe = storage.getRecipes().find(r => r.title === meal.title);
+                          if (recipe) setSelectedRecipe(recipe);
+                        }}
+                      >
                         <p className="text-[9px] font-bold text-zinc-400 uppercase truncate">{meal.category}</p>
-                        <p className="text-[10px] font-bold text-zinc-700 truncate">{meal.title}</p>
+                        <p className="text-[10px] font-bold text-zinc-700 truncate group-hover:text-[#4A7C59]">{meal.title}</p>
                       </div>
                     ))
                   ) : (
@@ -360,6 +367,13 @@ export default function Dashboard({ setActiveView }: DashboardProps) {
           <ChevronRight className="ml-auto text-zinc-300 group-hover:text-[#1E3F20] transition-colors" />
         </button>
       </div>
+
+      {selectedRecipe && (
+        <RecipeViewModal 
+          recipe={selectedRecipe} 
+          onClose={() => setSelectedRecipe(null)} 
+        />
+      )}
     </div>
   );
 }
