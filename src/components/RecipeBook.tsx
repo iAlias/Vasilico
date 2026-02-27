@@ -63,10 +63,11 @@ export default function RecipeBook() {
     if (!showPlanModal || selectedDays.length === 0) return;
 
     const s = parseFloat(planServings);
+    const currentUser = storage.getUser();
     
     selectedDays.forEach(dayDate => {
       storage.addMealLog({
-        user_id: 1,
+        user_id: currentUser?.id ?? 1,
         recipe_id: showPlanModal.id,
         title: showPlanModal.title,
         category: planCategory,
@@ -108,7 +109,7 @@ export default function RecipeBook() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const recipeData = {
-      user_id: 1,
+      user_id: storage.getUser()?.id ?? 1,
       title, 
       category, 
       calories: parseFloat(calories), 

@@ -7,8 +7,6 @@ import {
   ShoppingCart, 
   BarChart3, 
   LogOut, 
-  Plus,
-  ChevronRight,
   User as UserIcon,
   Download,
   Upload,
@@ -259,7 +257,7 @@ export default function App() {
             {activeView === "weight" && <WeightTracker />}
             {activeView === "meals" && <MealPlanner />}
             {activeView === "recipes" && <RecipeBook />}
-            {activeView === "shopping" && <ShoppingList />}
+            {activeView === "shopping" && <ShoppingList setActiveView={setActiveView} />}
             {activeView === "stats" && (
               <div className="py-24 text-center bg-white rounded-[3rem] border border-dashed border-zinc-200">
                 <BarChart3 className="mx-auto text-zinc-200 mb-4" size={48} />

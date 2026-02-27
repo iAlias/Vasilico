@@ -13,7 +13,7 @@ import { cn } from "../lib/utils";
 import type { ShoppingItem } from "../types";
 import { storage } from "../services/storageService";
 
-export default function ShoppingList() {
+export default function ShoppingList({ setActiveView }: { setActiveView?: (view: any) => void }) {
   const [items, setItems] = useState<ShoppingItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -123,7 +123,7 @@ export default function ShoppingList() {
           <h3 className="text-xl font-serif font-bold text-[#1E3F20] mb-2">La tua lista è vuota</h3>
           <p className="text-zinc-400 font-medium max-w-xs mx-auto">Pianifica dei pasti nel calendario per generare automaticamente la tua lista della spesa.</p>
           <button 
-            onClick={() => window.location.hash = "#meals"} // This is a hack, in a real app we'd use the setActiveView prop if passed
+            onClick={() => setActiveView?.("meals")}
             className="mt-8 text-[#3A6345] font-bold text-sm hover:text-[#5A4C36] transition-colors flex items-center gap-2 mx-auto"
           >
             Vai al Piano Pasti <ChevronRight size={16} />

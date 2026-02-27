@@ -38,8 +38,9 @@ export default function WeightTracker() {
     e.preventDefault();
     if (!weight) return;
 
+    const currentUser = storage.getUser();
     storage.addWeightLog({
-      user_id: 1,
+      user_id: currentUser?.id ?? 1,
       weight: parseFloat(weight),
       date,
       notes: ""
