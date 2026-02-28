@@ -50,12 +50,20 @@ class StorageService {
 
   // Recipes
   getRecipes(): Recipe[] {
-    const recipes = this.get<Recipe[]>(STORAGE_KEYS.RECIPES, []);
-    if (recipes.length === 0) {
+    const stored = this.get<Recipe[]>(STORAGE_KEYS.RECIPES, []);
+    if (stored.length === 0) {
       this.set(STORAGE_KEYS.RECIPES, DEFAULT_RECIPES);
       return DEFAULT_RECIPES;
     }
-    return recipes;
+    // Ensure all default recipes are present (in case new ones were added)
+    const storedIds = new Set(stored.map(r => r.id));
+    const missingDefaults = DEFAULT_RECIPES.filter(r => !storedIds.has(r.id));
+    if (missingDefaults.length > 0) {
+      const merged = [...stored, ...missingDefaults];
+      this.set(STORAGE_KEYS.RECIPES, merged);
+      return merged;
+    }
+    return stored;
   }
 
   resetRecipes(): void {
