@@ -233,7 +233,7 @@ export default function MealPlanner() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden"
+              className="bg-white w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             >
               <div className="p-8 border-b border-zinc-50 flex items-center justify-between">
                 <h3 className="text-2xl font-serif font-bold text-[#1E3F20]">Aggiungi Pasto</h3>
@@ -242,7 +242,7 @@ export default function MealPlanner() {
                 </button>
               </div>
 
-              <form onSubmit={handleAddMeal} className="p-8 space-y-6">
+              <form onSubmit={handleAddMeal} className="p-8 overflow-y-auto space-y-6">
                 <div className="space-y-3">
                   <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] ml-1">Giorni</label>
                   <div className="grid grid-cols-2 gap-2">
