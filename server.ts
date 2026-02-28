@@ -118,7 +118,7 @@ app.post("/api/auth/signup", async (req, res) => {
 
   try {
     const info = db.prepare("INSERT INTO users (email, password, name) VALUES (?, ?, ?)").run(email, hashedPassword, name);
-    const token = jwt.sign({ id: info.lastInsertRowid, email, name }, JWT_SECRET);
+    const token = jwt.sign({ id: info.lastInsertRowid, email, name }, JWT_SECRET, { expiresIn: "7d" });
     res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" });
     res.json({ id: info.lastInsertRowid, email, name });
   } catch (err) {
@@ -134,7 +134,7 @@ app.post("/api/auth/login", async (req, res) => {
     return res.status(401).json({ error: "Invalid credentials" });
   }
 
-  const token = jwt.sign({ id: user.id, email: user.email, name: user.name }, JWT_SECRET);
+  const token = jwt.sign({ id: user.id, email: user.email, name: user.name }, JWT_SECRET, { expiresIn: "7d" });
   res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" });
   res.json({ id: user.id, email: user.email, name: user.name });
 });

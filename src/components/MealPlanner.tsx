@@ -52,10 +52,11 @@ export default function MealPlanner() {
     if (!recipe || selectedDays.length === 0) return;
 
     const s = parseFloat(servings);
+    const currentUser = storage.getUser();
     
     selectedDays.forEach(dayDate => {
       storage.addMealLog({
-        user_id: 1,
+        user_id: currentUser?.id ?? 1,
         recipe_id: recipe.id,
         title: recipe.title,
         category: mealCategory,
