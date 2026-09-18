@@ -1,9 +1,9 @@
 <div align="center">
 
   <h1>🌿 Vasilicò</h1>
-  <p><strong>La tua app premium per la salute e la nutrizione</strong></p>
+  <p><strong>Your premium health and nutrition tracker.</strong></p>
   <p>
-    Monitoraggio del peso · Pianificazione pasti · Ricettario intelligente · Lista della spesa automatica
+    Weight tracking · Meal planning · AI-powered recipe book · Automatic shopping list
   </p>
 
   <p>
@@ -19,247 +19,258 @@
 
 ---
 
-## 📖 Indice
+🇮🇹 [Leggi in italiano](README.it.md)
 
-- [Panoramica](#-panoramica)
-- [Screenshot](#-screenshot)
-- [Funzionalità](#-funzionalità)
-- [Stack Tecnologico](#-stack-tecnologico)
-- [Struttura del Progetto](#-struttura-del-progetto)
-- [Installazione e Avvio](#-installazione-e-avvio)
-- [Variabili d'Ambiente](#-variabili-dambiente)
+## 📖 Contents
+
+- [Overview](#-overview)
+- [Screenshots](#-screenshots)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation and Setup](#-installation-and-setup)
+- [Environment Variables](#-environment-variables)
 - [API Endpoints](#-api-endpoints)
-- [Schema del Database](#-schema-del-database)
-- [Script Disponibili](#-script-disponibili)
+- [Database Schema](#-database-schema)
+- [Available Scripts](#-available-scripts)
+- [License](#-license)
 
 ---
 
-## 🌟 Panoramica
+## 🌟 Overview
 
-**Vasilicò** è un'applicazione web full-stack per il monitoraggio della salute e della nutrizione personale. Progettata con un'interfaccia moderna e intuitiva, permette di gestire il proprio peso, pianificare i pasti settimanali, esplorare un ricettario con oltre 100 ricette generate tramite AI e generare automaticamente la lista della spesa.
+**Vasilicò** is a full-stack web application for personal health and nutrition tracking. Built
+around a modern, intuitive interface, it lets you log your weight, plan weekly meals, browse a
+recipe book of 100+ AI-generated recipes, and automatically build your shopping list.
 
-L'app utilizza un backend **Express.js** con database **SQLite** per la persistenza dei dati e integra **Google Gemini AI** per la generazione intelligente delle ricette. Il frontend è costruito con **React 19** e **Tailwind CSS**, offrendo un'esperienza utente fluida con animazioni e design responsive.
+The app is powered by an **Express.js** backend backed by a **SQLite** database, and integrates
+**Google Gemini AI** for intelligent recipe generation. The frontend is built with **React 19**
+and **Tailwind CSS**, offering a smooth, animated, and fully responsive experience.
 
 ---
 
-## 📸 Screenshot
+## 📸 Screenshots
 
 ### Dashboard
-La dashboard offre una panoramica completa: peso attuale, nutrizione giornaliera, programma settimanale e accesso rapido a ricettario e lista della spesa.
+The dashboard gives you a full overview: current weight, daily nutrition, the weekly schedule, and
+quick access to the recipe book and shopping list.
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/f3d193b1-2c27-451d-b11d-ad05a7ec7c83" alt="Dashboard" width="900" />
 </div>
 
-### Monitoraggio Peso
-Registra il tuo peso giorno per giorno e visualizza i progressi nel tempo con grafici interattivi.
+### Weight Tracking
+Log your weight day by day and watch your progress over time with interactive charts.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/0345494a-f5a0-4397-a022-97e586e6ecc8" alt="Monitoraggio Peso" width="900" />
+  <img src="https://github.com/user-attachments/assets/0345494a-f5a0-4397-a022-97e586e6ecc8" alt="Weight tracking" width="900" />
 </div>
 
-### Piano Pasti
-Organizza la tua alimentazione settimanale giorno per giorno, con riepilogo calorico e nutrizionale per ogni giornata.
+### Meal Plan
+Organize your weekly diet day by day, with a calorie and nutrition summary for each day.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/d159ae31-886c-456e-a883-b4724cf3e64c" alt="Piano Pasti" width="900" />
+  <img src="https://github.com/user-attachments/assets/d159ae31-886c-456e-a883-b4724cf3e64c" alt="Meal plan" width="900" />
 </div>
 
-### Ricettario
-Sfoglia oltre 100 ricette suddivise per categoria (Colazione, Pranzo, Cena, Spuntino) con dettagli nutrizionali completi, ingredienti e istruzioni.
+### Recipe Book
+Browse 100+ recipes organized by category (Breakfast, Lunch, Dinner, Snack), with full nutritional
+details, ingredients and instructions.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/dbade01e-a1a0-4a9e-8066-66bbd6a3aab5" alt="Ricettario" width="900" />
+  <img src="https://github.com/user-attachments/assets/dbade01e-a1a0-4a9e-8066-66bbd6a3aab5" alt="Recipe book" width="900" />
 </div>
 
-### Lista della Spesa
-Generata automaticamente dal piano pasti settimanale, con aggregazione intelligente degli ingredienti duplicati e organizzazione per categoria.
+### Shopping List
+Generated automatically from the weekly meal plan, with smart aggregation of duplicate ingredients
+and organization by category.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/d39a69cd-3ab8-4e9b-bc04-b5e74cdfc590" alt="Lista della Spesa" width="900" />
+  <img src="https://github.com/user-attachments/assets/d39a69cd-3ab8-4e9b-bc04-b5e74cdfc590" alt="Shopping list" width="900" />
 </div>
 
-### Autenticazione
-Sistema di login e registrazione sicuro con crittografia delle password e sessioni JWT.
+### Authentication
+Secure login and registration, with password hashing and JWT sessions.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/5af5d20a-ada6-4130-88d0-3dd708b02d48" alt="Login e Registrazione" width="900" />
+  <img src="https://github.com/user-attachments/assets/5af5d20a-ada6-4130-88d0-3dd708b02d48" alt="Login and registration" width="900" />
 </div>
 
 ---
 
-## ✨ Funzionalità
+## ✨ Features
 
-### 🔐 Autenticazione Utente
-- Registrazione e login con email e password
-- Sessioni sicure con **JWT** (scadenza a 7 giorni)
-- Crittografia delle password con **bcryptjs**
-- Gestione profilo utente personalizzabile
+### 🔐 User Authentication
+- Sign-up and login with email and password
+- Secure sessions with **JWT** (7-day expiry)
+- Password hashing with **bcryptjs**
+- Customizable user profile
 
-### ⚖️ Monitoraggio del Peso
-- Registrazione giornaliera del peso
-- Grafico interattivo dei progressi (area chart)
-- Cronologia completa delle registrazioni
-- Analisi dell'andamento nel tempo
+### ⚖️ Weight Tracking
+- Daily weight logging
+- Interactive progress chart (area chart)
+- Full log history
+- Trend analysis over time
 
-### 🍽️ Piano Pasti Settimanale
-- Pianificazione giorno per giorno
-- Navigazione tra le settimane
-- Riepilogo calorico e nutrizionale per giornata
-- Aggiunta pasti dal ricettario o manuali
-- Note personalizzate per ogni pasto
+### 🍽️ Weekly Meal Planner
+- Day-by-day planning
+- Navigation between weeks
+- Calorie and nutrition summary per day
+- Add meals from the recipe book or manually
+- Custom notes for each meal
 
-### 📖 Ricettario Intelligente
-- **100+ ricette** generate automaticamente con Google Gemini AI
-- Categorie: Colazione, Pranzo, Cena, Spuntino
-- Informazioni nutrizionali dettagliate (calorie, proteine, carboidrati, grassi)
-- Lista ingredienti con quantità e unità di misura
-- Ricerca e filtri per nome o categoria
-- Possibilità di creare ricette personalizzate
+### 📖 Smart Recipe Book
+- **100+ recipes** auto-generated with Google Gemini AI
+- Categories: Breakfast, Lunch, Dinner, Snack
+- Detailed nutritional information (calories, protein, carbs, fat)
+- Ingredient list with quantities and units
+- Search and filter by name or category
+- Ability to create custom recipes
 
-### 🛒 Lista della Spesa Automatica
-- Generazione automatica dal piano pasti settimanale
-- Aggregazione intelligente degli ingredienti duplicati
-- Organizzazione per categoria (verdure, proteine, latticini, ecc.)
-- Check-off degli articoli durante la spesa
-- Funzione di stampa
+### 🛒 Automatic Shopping List
+- Automatically generated from the weekly meal plan
+- Smart aggregation of duplicate ingredients
+- Organized by category (vegetables, proteins, dairy, etc.)
+- Check items off while shopping
+- Print function
 
 ### 📊 Dashboard
-- Panoramica del peso attuale e variazione
-- Riepilogo nutrizione giornaliera
-- Programma settimanale a colpo d'occhio
-- Accesso rapido a ricettario e lista della spesa
+- Overview of current weight and its trend
+- Daily nutrition summary
+- Weekly schedule at a glance
+- Quick access to the recipe book and shopping list
 
-### 💾 Import/Export Dati
-- Esportazione completa dei dati in formato JSON
-- Importazione dati da backup precedenti
-- Storage locale nel browser (localStorage)
+### 💾 Data Import/Export
+- Full data export in JSON format
+- Import data from a previous backup
+- Local browser storage (localStorage)
 
 ---
 
-## 🛠️ Stack Tecnologico
+## 🛠️ Tech Stack
 
 ### Frontend
-| Tecnologia | Versione | Utilizzo |
+| Technology | Version | Purpose |
 |---|---|---|
-| [React](https://react.dev) | 19.0 | Libreria UI principale |
-| [TypeScript](https://www.typescriptlang.org) | 5.8 | Type-safety e sviluppo robusto |
-| [Vite](https://vite.dev) | 6.2 | Build tool e dev server |
-| [Tailwind CSS](https://tailwindcss.com) | 4.1 | Styling utility-first |
-| [Motion](https://motion.dev) | 12.x | Animazioni fluide |
-| [Recharts](https://recharts.org) | 3.7 | Grafici interattivi |
-| [Lucide React](https://lucide.dev) | 0.546 | Icone |
-| [date-fns](https://date-fns.org) | 4.1 | Formattazione date |
+| [React](https://react.dev) | 19.0 | Core UI library |
+| [TypeScript](https://www.typescriptlang.org) | 5.8 | Type safety and robust development |
+| [Vite](https://vite.dev) | 6.2 | Build tool and dev server |
+| [Tailwind CSS](https://tailwindcss.com) | 4.1 | Utility-first styling |
+| [Motion](https://motion.dev) | 12.x | Smooth animations |
+| [Recharts](https://recharts.org) | 3.7 | Interactive charts |
+| [Lucide React](https://lucide.dev) | 0.546 | Icons |
+| [date-fns](https://date-fns.org) | 4.1 | Date formatting |
 
 ### Backend
-| Tecnologia | Versione | Utilizzo |
+| Technology | Version | Purpose |
 |---|---|---|
-| [Express.js](https://expressjs.com) | 4.21 | Server HTTP e API REST |
-| [Better-sqlite3](https://github.com/WiseLibs/better-sqlite3) | 12.4 | Database SQLite embedded |
-| [Google Gemini AI](https://ai.google.dev) | 1.29 | Generazione ricette con AI |
-| [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | 9.0 | Autenticazione JWT |
-| [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | 3.0 | Hashing password |
-| [cookie-parser](https://github.com/expressjs/cookie-parser) | 1.4 | Gestione cookie |
-| [dotenv](https://github.com/motdotla/dotenv) | 17.2 | Variabili d'ambiente |
+| [Express.js](https://expressjs.com) | 4.21 | HTTP server and REST API |
+| [Better-sqlite3](https://github.com/WiseLibs/better-sqlite3) | 12.4 | Embedded SQLite database |
+| [Google Gemini AI](https://ai.google.dev) | 1.29 | AI-powered recipe generation |
+| [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | 9.0 | JWT authentication |
+| [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | 3.0 | Password hashing |
+| [cookie-parser](https://github.com/expressjs/cookie-parser) | 1.4 | Cookie handling |
+| [dotenv](https://github.com/motdotla/dotenv) | 17.2 | Environment variables |
 
 ---
 
-## 📁 Struttura del Progetto
+## 📁 Project Structure
 
 ```
 Vasilicò/
-├── index.html                  # Entry point HTML
-├── server.ts                   # Server Express.js (backend)
-├── vite.config.ts              # Configurazione Vite
-├── tsconfig.json               # Configurazione TypeScript
-├── package.json                # Dipendenze e script
-├── metadata.json               # Metadati dell'app
-├── .env.example                # Template variabili d'ambiente
-├── public/                     # Asset statici
+├── index.html                  # HTML entry point
+├── server.ts                   # Express.js server (backend)
+├── vite.config.ts              # Vite configuration
+├── tsconfig.json               # TypeScript configuration
+├── package.json                # Dependencies and scripts
+├── metadata.json                # App metadata
+├── .env.example                 # Environment variable template
+├── public/                      # Static assets
 └── src/
-    ├── main.tsx                # Entry point React
-    ├── App.tsx                 # Componente principale con navigazione
-    ├── index.css               # Stili globali e Tailwind
-    ├── types.ts                # Interfacce TypeScript
+    ├── main.tsx                 # React entry point
+    ├── App.tsx                  # Main component with navigation
+    ├── index.css                 # Global styles and Tailwind
+    ├── types.ts                  # TypeScript interfaces
     ├── components/
-    │   ├── Auth.tsx            # Login e registrazione
-    │   ├── Dashboard.tsx       # Dashboard principale
-    │   ├── WeightTracker.tsx   # Monitoraggio peso
-    │   ├── MealPlanner.tsx     # Pianificazione pasti
-    │   ├── RecipeBook.tsx      # Ricettario
-    │   ├── RecipeViewModal.tsx # Modale dettaglio ricetta
-    │   ├── ShoppingList.tsx    # Lista della spesa
-    │   └── Profile.tsx         # Profilo utente
+    │   ├── Auth.tsx              # Login and sign-up
+    │   ├── Dashboard.tsx         # Main dashboard
+    │   ├── WeightTracker.tsx     # Weight tracking
+    │   ├── MealPlanner.tsx       # Meal planning
+    │   ├── RecipeBook.tsx        # Recipe book
+    │   ├── RecipeViewModal.tsx   # Recipe detail modal
+    │   ├── ShoppingList.tsx      # Shopping list
+    │   └── Profile.tsx           # User profile
     ├── constants/
-    │   └── defaultRecipes.ts   # Ricette predefinite di fallback
+    │   └── defaultRecipes.ts     # Default fallback recipes
     ├── lib/
-    │   └── utils.ts            # Utility (cn per classi CSS)
+    │   └── utils.ts              # Utilities (cn for CSS classes)
     └── services/
-        └── storageService.ts   # Servizio localStorage
+        └── storageService.ts     # localStorage service
 ```
 
 ---
 
-## 🚀 Installazione e Avvio
+## 🚀 Installation and Setup
 
-### Prerequisiti
+### Prerequisites
 
-- **Node.js** (versione 18 o superiore)
-- **npm** (incluso con Node.js)
-- Una **chiave API Google Gemini** (per la generazione ricette con AI) — [Ottienila qui](https://ai.google.dev)
+- **Node.js** (version 18 or later)
+- **npm** (bundled with Node.js)
+- A **Google Gemini API key** (for AI recipe generation) — [get one here](https://ai.google.dev)
 
-### Passaggi
+### Steps
 
-1. **Clona il repository**
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/iAlias/Vasilico.git
    cd Vasilico
    ```
 
-2. **Installa le dipendenze**
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-3. **Configura le variabili d'ambiente**
+3. **Configure environment variables**
 
-   Copia il file di esempio e inserisci i tuoi valori:
+   Copy the example file and fill in your own values:
 
    ```bash
    cp .env.example .env
    ```
 
-   Modifica il file `.env` con i tuoi dati (vedi [Variabili d'Ambiente](#-variabili-dambiente)).
+   Edit the `.env` file with your data (see [Environment Variables](#-environment-variables)).
 
-4. **Avvia il server di sviluppo**
+4. **Start the development server**
 
    ```bash
    npm run dev
    ```
 
-5. **Apri il browser**
+5. **Open your browser**
 
-   Vai su [http://localhost:3000](http://localhost:3000) 🎉
+   Go to [http://localhost:3000](http://localhost:3000) 🎉
 
-> **Nota:** Al primo avvio, se la chiave API Gemini è configurata correttamente, il server genererà automaticamente oltre 100 ricette utilizzando l'intelligenza artificiale. Questo processo avviene una sola volta.
+> **Note:** On the first run, if the Gemini API key is configured correctly, the server will
+> automatically generate 100+ recipes using AI. This happens only once.
 
 ---
 
-## 🔑 Variabili d'Ambiente
+## 🔑 Environment Variables
 
-Crea un file `.env` nella root del progetto basandoti su [`.env.example`](.env.example):
+Create a `.env` file in the project root based on [`.env.example`](.env.example):
 
-| Variabile | Obbligatoria | Descrizione |
+| Variable | Required | Description |
 |---|---|---|
-| `GEMINI_API_KEY` | ✅ | Chiave API per Google Gemini AI. Necessaria per la generazione delle ricette. |
-| `JWT_SECRET` | ✅ | Chiave segreta per la firma dei token JWT. Usa una stringa lunga e casuale. |
-| `APP_URL` | ❌ | URL dove l'app è ospitata (default: `http://localhost:3000`). |
+| `GEMINI_API_KEY` | ✅ | API key for Google Gemini AI. Required for recipe generation. |
+| `JWT_SECRET` | ✅ | Secret key used to sign JWT tokens. Use a long, random string. |
+| `APP_URL` | ❌ | The URL where the app is hosted (default: `http://localhost:3000`). |
 
 ```env
-GEMINI_API_KEY="la_tua_chiave_gemini"
-JWT_SECRET="una_stringa_segreta_molto_lunga_e_casuale"
+GEMINI_API_KEY="your_gemini_api_key"
+JWT_SECRET="a_long_random_secret_string"
 APP_URL="http://localhost:3000"
 ```
 
@@ -267,91 +278,97 @@ APP_URL="http://localhost:3000"
 
 ## 🔌 API Endpoints
 
-Tutte le API richiedono autenticazione tramite cookie JWT (eccetto le rotte di auth).
+All APIs require JWT cookie authentication (except the auth routes themselves).
 
-### Autenticazione
+### Authentication
 
-| Metodo | Endpoint | Descrizione |
+| Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/api/auth/signup` | Registra un nuovo utente |
-| `POST` | `/api/auth/login` | Effettua il login |
-| `POST` | `/api/auth/logout` | Effettua il logout |
-| `GET` | `/api/auth/me` | Ottiene l'utente corrente |
+| `POST` | `/api/auth/signup` | Registers a new user |
+| `POST` | `/api/auth/login` | Logs in |
+| `POST` | `/api/auth/logout` | Logs out |
+| `GET` | `/api/auth/me` | Gets the current user |
 
-### Peso
+### Weight
 
-| Metodo | Endpoint | Descrizione |
+| Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/weight` | Lista tutte le registrazioni del peso |
-| `POST` | `/api/weight` | Registra un nuovo peso |
-| `DELETE` | `/api/weight/:id` | Elimina una registrazione |
+| `GET` | `/api/weight` | Lists all weight log entries |
+| `POST` | `/api/weight` | Logs a new weight entry |
+| `DELETE` | `/api/weight/:id` | Deletes a log entry |
 
-### Ricette
+### Recipes
 
-| Metodo | Endpoint | Descrizione |
+| Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/recipes` | Lista tutte le ricette |
-| `POST` | `/api/recipes` | Crea una nuova ricetta |
-| `DELETE` | `/api/recipes/:id` | Elimina una ricetta |
+| `GET` | `/api/recipes` | Lists all recipes |
+| `POST` | `/api/recipes` | Creates a new recipe |
+| `DELETE` | `/api/recipes/:id` | Deletes a recipe |
 
-### Pasti
+### Meals
 
-| Metodo | Endpoint | Descrizione |
+| Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/meals?start=YYYY-MM-DD&end=YYYY-MM-DD` | Lista i pasti in un intervallo di date |
-| `POST` | `/api/meals` | Registra un nuovo pasto |
-| `DELETE` | `/api/meals/:id` | Elimina un pasto |
+| `GET` | `/api/meals?start=YYYY-MM-DD&end=YYYY-MM-DD` | Lists meals within a date range |
+| `POST` | `/api/meals` | Logs a new meal |
+| `DELETE` | `/api/meals/:id` | Deletes a meal |
 
-### Lista della Spesa
+### Shopping List
 
-| Metodo | Endpoint | Descrizione |
+| Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/shopping-list` | Genera e restituisce la lista della spesa |
-| `PATCH` | `/api/shopping-list/:id` | Segna/deseleziona un articolo |
-| `DELETE` | `/api/shopping-list` | Svuota la lista della spesa |
+| `GET` | `/api/shopping-list` | Generates and returns the shopping list |
+| `PATCH` | `/api/shopping-list/:id` | Checks/unchecks an item |
+| `DELETE` | `/api/shopping-list` | Clears the shopping list |
 
 ---
 
-## 🗄️ Schema del Database
+## 🗄️ Database Schema
 
-L'applicazione utilizza **SQLite** con le seguenti tabelle:
+The application uses **SQLite** with the following tables:
 
 ```sql
--- Utenti registrati
+-- Registered users
 users (id, email, password, name, created_at)
 
--- Registrazioni del peso
+-- Weight log entries
 weight_logs (id, user_id, weight, date)
 
--- Ricette (user_id = 0 per le ricette di sistema generate da AI)
+-- Recipes (user_id = 0 for system recipes generated by AI)
 recipes (id, user_id, title, category, calories, protein, carbs, fat, servings, instructions)
 
--- Ingredienti delle ricette
+-- Recipe ingredients
 ingredients (id, recipe_id, name, amount, unit, category)
 
--- Pasti pianificati/registrati
+-- Planned/logged meals
 meal_logs (id, user_id, recipe_id, title, category, calories, protein, carbs, fat, servings, date, notes)
 
--- Lista della spesa
+-- Shopping list
 shopping_list (id, user_id, name, amount, unit, category, is_checked)
 ```
 
-Le categorie degli ingredienti includono: `vegetables`, `proteins`, `carbs`, `dairy`, `fruit`, `pantry`, `other`.
+Ingredient categories include: `vegetables`, `proteins`, `carbs`, `dairy`, `fruit`, `pantry`, `other`.
 
 ---
 
-## 📜 Script Disponibili
+## 📜 Available Scripts
 
-| Comando | Descrizione |
+| Command | Description |
 |---|---|
-| `npm run dev` | Avvia il server di sviluppo su `http://localhost:3000` |
-| `npm run build` | Compila il frontend per la produzione nella cartella `dist/` |
-| `npm run preview` | Anteprima della build di produzione |
-| `npm run lint` | Controllo dei tipi TypeScript (`tsc --noEmit`) |
-| `npm run clean` | Rimuove la cartella `dist/` |
+| `npm run dev` | Starts the development server on `http://localhost:3000` |
+| `npm run build` | Builds the frontend for production into the `dist/` folder |
+| `npm run preview` | Previews the production build |
+| `npm run lint` | TypeScript type checking (`tsc --noEmit`) |
+| `npm run clean` | Removes the `dist/` folder |
+
+---
+
+## License
+
+[MIT](LICENSE) © 2026 iAlias
 
 ---
 
 <div align="center">
-  <p>Fatto con 💚 — <strong>Vasilicò</strong></p>
+  <p>Made with 💚 — <strong>Vasilicò</strong></p>
 </div>
